@@ -1,0 +1,57 @@
+reports:
+  report_001:
+    name: "日销售统计"
+    menu_path:
+      - "销售管理"
+      - "日报表"
+      - "日销售统计"
+    form_fields:
+      - field_id: "query_date"
+        element_type: "date_picker"
+        label: "查询日期"
+        value: "${today}"
+      - field_id: "department"
+        element_type: "dropdown"
+        label: "部门"
+        value: "全部"
+    action_button: "导出"
+    export_format: "excel"
+    is_browser_popup: false
+
+  report_002:
+    name: "月度销售汇总"
+    menu_path:
+      - "销售管理"
+      - "月报表"
+    form_fields:
+      - field_id: "year_month"
+        element_type: "date_picker"
+        value: "${current_month}"
+    action_button: "导出"
+    export_format: "excel"
+    is_browser_popup: false
+
+  report_003:
+    name: "客户分析报表"
+    menu_path:
+      - "分析中心"
+      - "客户分析"
+    form_fields:
+      - field_id: "start_date"
+        element_type: "date_picker"
+        value: "${first_day_of_month}"
+      - field_id: "end_date"
+        element_type: "date_picker"
+        value: "${today}"
+    action_button: "查询"
+    export_format: "excel"
+    is_browser_popup: true
+    browser_config:
+      wait_for_url_pattern: "analysis.report"
+      export_button_xpath: "//button[@id='export-btn']"
+      wait_timeout: 15
+
+export_config:
+  base_path: "D:\\RPA_Exports"
+  naming_pattern: "{report_name}_{timestamp}.{format}"
+  verify_file: true
