@@ -1,0 +1,9 @@
+pyautogui==0.9.53
+pywinauto==0.9.3
+selenium==4.10.0
+pillow==9.5.0
+pyyaml==6.0
+opencv-python==4.7.0.72
+python-dotenv==1.0.0
+win10toast==0.9
+requests==2.31.0
